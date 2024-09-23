@@ -2,13 +2,17 @@ import React from "react";
 import { useListaDeParticipantes } from "../state/hook/useListaDeParticipantes";
 import { useNavigate } from "react-router-dom";
 import "./Rodape.css";
+import { useSorteador } from "../state/hook/useSorteador";
 
 const Rodape = () => {
   const participantes = useListaDeParticipantes();
 
   const navegarPara = useNavigate();
 
+  const sortear = useSorteador()
+
   const iniciar = () => {
+    sortear()
     navegarPara("/sorteio");
   };
 
